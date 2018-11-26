@@ -1,3 +1,5 @@
+#Reverse proxy for Docker
+
 Nginx 1.5.6 with modsecurity, brotli and geoip2 included
 
 This product includes GeoLite2 data created by MaxMind, available from
