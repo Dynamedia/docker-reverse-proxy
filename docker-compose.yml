@@ -2,7 +2,7 @@ version: "3.4"
 
 services:
   nginx:
-    image: dynamedia/docker-nginx
+    image: dynamedia/docker-nginx:latest
     env_file:
       - .env
     labels:
