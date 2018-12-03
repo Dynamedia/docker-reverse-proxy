@@ -2,8 +2,9 @@ version: "3.4"
 
 services:
   nginx:
-    build: ./nginx
-    image: nginx
+    image: dynamedia/docker-nginx
+    env_file:
+      - .env
     labels:
       com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy : "true"
     restart: always

@@ -1,6 +1,5 @@
 #Reverse proxy for Docker
 
-Nginx 1.5.6 with modsecurity, brotli and geoip2 included
+Docker-compose file to use nginx as a reverse proxy with caching, geoip2, modsecurity and letsencrypt.
 
-This product includes GeoLite2 data created by MaxMind, available from
-<a href="http://www.maxmind.com">http://www.maxmind.com</a>.
+Remember to create the network 'reverse-proxy' before running docker-compose up.
