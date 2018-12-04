@@ -173,5 +173,5 @@ SecRule REQUEST_FILENAME "@endsWith /system/eventlogs" \
      phase:2,\
      pass,\
      nolog,\
-     ctl:removeRuleById=953100-953120"
+     ctl:ruleRemoveById=953100-953120"
 
