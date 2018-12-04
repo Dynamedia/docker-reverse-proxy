@@ -167,8 +167,8 @@
 
 # OCTOBER CMS CRS EXCLUSIONS
 
-# Event logs expose some php in the backend by design so disable this rule
-SecRule REQUEST_FILENAME "@endsWith /system/eventlogs" \
+# Event logs expose some php in the backend by design so disable rules from RESPONSE-953-DATA-LEAKAGES-PHP
+SecRule REQUEST_FILENAME "@contains /system/eventlogs" \
      "id:1000,\
      phase:2,\
      pass,\
