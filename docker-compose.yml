@@ -16,6 +16,8 @@ services:
       - ./.data/certs:/etc/nginx/certs:ro
       - ./.data/vhosts:/etc/nginx/vhost.d
       - ./.data/html:/usr/share/nginx/html
+      - ./modsecurity/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf.example:/etc/nginx/modsecurity.d/rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf
+      - ./modsecurity/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf.example:/etc/modsecurity.d/rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf
 
   nginx-gen:
     image: jwilder/docker-gen
