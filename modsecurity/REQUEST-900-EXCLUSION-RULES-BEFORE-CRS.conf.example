@@ -182,3 +182,11 @@ SecRule REQUEST_FILENAME "@contains /cms" \
      pass,\
      nolog,\
      ctl:ruleRemoveById=949100-949110"
+
+# Prevent 403's when making changes to the CMS in backend
+SecRule REQUEST_FILENAME "@contains /backend" \
+     "id:1002,\
+     phase:2,\
+     pass,\
+     nolog,\
+     ctl:ruleRemoveById=949100-949110"
