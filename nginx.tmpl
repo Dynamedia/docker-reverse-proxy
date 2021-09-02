@@ -82,9 +82,9 @@ proxy_set_header X-Forwarded-Proto $proxy_x_forwarded_proto;
 proxy_set_header X-Forwarded-Ssl $proxy_x_forwarded_ssl;
 proxy_set_header X-Forwarded-Port $proxy_x_forwarded_port;
 # Geoip2
-proxy_set_header X-Country-Code $geoip2_data_country_code;
-proxy_set_header X-Country-Name $geoip2_data_country_name;
-proxy_set_header X-City-Name $geoip2_data_city_name;
+#proxy_set_header X-Country-Code $geoip2_data_country_code;
+#proxy_set_header X-Country-Name $geoip2_data_country_name;
+#proxy_set_header X-City-Name $geoip2_data_city_name;
 
 # Mitigate httpoxy attack (see README for details)
 proxy_set_header Proxy "";
