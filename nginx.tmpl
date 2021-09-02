@@ -199,6 +199,9 @@ server {
 	{{ if $enable_ipv6 }}
 	listen [::]:80 {{ $default_server }};
 	{{ end }}
+        if ($http_user_agent ~* (Ahrefs|SemrushBot|MJ12Bot|DotBot)) {
+            return 444;
+        }
 	access_log /var/log/nginx/access.log vhost;
 	return 301 https://$host$request_uri;
 }
@@ -210,6 +213,9 @@ server {
 	{{ if $enable_ipv6 }}
 	listen [::]:443 ssl http2 {{ $default_server }};
 	{{ end }}
+        if ($http_user_agent ~* (Ahrefs|SemrushBot|MJ12Bot|DotBot)) {
+            return 444;
+        }
 	access_log /var/log/nginx/access.log vhost;
 
 	{{ if eq $network_tag "internal" }}

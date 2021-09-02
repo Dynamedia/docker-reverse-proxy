@@ -20,7 +20,7 @@ services:
       - ./modsecurity/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf.example:/etc/modsecurity.d/rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf
 
   nginx-gen:
-    image: jwilder/docker-gen
+    image: jwilder/docker-gen:latest
     command: -notify-sighup nginx-proxy -watch -wait 5s:30s /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
     container_name: nginx-proxy-gen
     labels:
@@ -35,7 +35,7 @@ services:
       - ./.data/html:/usr/share/nginx/html
 
   letsencrypt-nginx-proxy-companion:
-    image: jrcs/letsencrypt-nginx-proxy-companion
+    image: nginxproxy/acme-companion:latest
     restart: always
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
@@ -43,6 +43,7 @@ services:
       - ./.data/certs:/etc/nginx/certs
       - ./.data/vhosts:/etc/nginx/vhost.d
       - ./.data/html:/usr/share/nginx/html
+      - ./.data/acme.sh:/etc/acme.sh
 
 networks:
   default:
